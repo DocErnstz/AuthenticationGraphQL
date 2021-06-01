@@ -1,18 +1,14 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
-
-@Entity()
+import { ObjectType, Field, Int } from "type-graphql";
+@ObjectType()
+@Entity("users")
 export class User {
-
+    @Field(() => Int)
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    firstName: string;
-
-    @Column()
-    lastName: string;
-
-    @Column()
-    age: number;
-
+    @Field()
+    @Column("text")
+    email: string;
+    @Column("text")
+    password: string;
 }
