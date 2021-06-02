@@ -4,6 +4,7 @@ import { User } from "../entity/User";
 import {sign} from "jsonwebtoken";
 import { MyContext } from "src/MyContext";
 import {isAuth} from "../isAuth";
+
 @ObjectType()
 class LoginResponse {
   @Field()
