@@ -14,7 +14,7 @@ import { sendRefreshToken } from "./sendRefreshToken";
 (async () => {
     const app = express();
     app.use(cookieParser());
-    app.get("/", (_req, res) => res.send("hello"));
+    app.get("/", (_req, res) => res.send("helo"));
     app.post("/refresh_token", async (req, res) => {
         const token = req.cookies.jid
         if(!token) {
