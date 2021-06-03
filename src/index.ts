@@ -9,6 +9,7 @@ import cookieParser from "cookie-parser";
 import { verify } from "jsonwebtoken";
 import { User } from "./entity/User";
 import { createAccessToken, createRefreshToken } from "./auth";
+import { sendRefreshToken } from "./sendRefreshToken";
 
 (async () => {
     const app = express();
@@ -30,9 +31,9 @@ import { createAccessToken, createRefreshToken } from "./auth";
         if(!user) {
             return res.send({ ok: false, accessToken: ""});
         }
-        res.cookie("jid", createRefreshToken(user), {
-            httpOnly: true
-        });
+
+        sendRefreshToken(res, createRefreshToken(user));
+
         return res.send({ ok: true, accessToken: createAccessToken(user) });
     });
     await createConnection();
