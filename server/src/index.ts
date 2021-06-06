@@ -48,7 +48,7 @@ import { sendRefreshToken } from "./sendRefreshToken";
         context: ({ req, res }) => ({ req, res })
     });
     apolloServer.applyMiddleware({ app });
-    app.listen(4000, () => {
+    app.listen(4001, () => {
         console.log("express server started");
     })
 })();
